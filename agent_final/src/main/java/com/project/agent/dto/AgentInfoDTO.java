@@ -1,0 +1,17 @@
+package com.project.agent.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class AgentInfoDTO {
+    private Long id;
+    private String username;
+    private String email;
+    private Long agencyId;
+    private String agencyName;
+    private boolean available;
+}

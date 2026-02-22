@@ -1,0 +1,9 @@
+docker compose -f agent_final/docker-compose.yml up db -d
+or
+docker compose -f docker-compose.yml up db -d
+cd agent_final
+./mvnw clean compile 
+./mvnw spring-boot:run
+cd agency-booking-frontend && npm start
+
+
