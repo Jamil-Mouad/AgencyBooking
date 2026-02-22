@@ -22,7 +22,7 @@ AgencyBooking is a multi-role platform that connects **users** seeking services 
 
 The system features real-time WebSocket communication for reservation locking, email notifications for booking lifecycle events, and a role-based security model with JWT authentication.
 
-<video src="record.mp4" controls width="600"></video>
+<video src="https://raw.githubusercontent.com/Jamil-Mouad/AgencyBooking/main/record.mp4" controls width="600"></video>
 ---
 
 ## Architecture
