@@ -21,7 +21,7 @@
 AgencyBooking is a multi-role platform that connects **users** seeking services with **agencies** and their **agents**. Users browse agencies, book appointments for specific services, and track their reservations. Agents manage incoming bookings with a real-time locking system that prevents conflicts. Administrators oversee the entire ecosystem — managing users, agents, agencies, services, and platform statistics.
 
 The system features real-time WebSocket communication for reservation locking, email notifications for booking lifecycle events, and a role-based security model with JWT authentication.
-
+<video src="record.mp4" controls width="600"></video>
 ---
 
 ## Architecture
