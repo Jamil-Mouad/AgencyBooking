@@ -115,7 +115,7 @@ import { User, UserRole, ChangeRoleRequest, ApiResponse } from '../../../shared/
   styles: [`
     .users-container {
       padding: 28px;
-      max-width: 1200px;
+      max-width: 1500px;
       margin: 0 auto;
     }
 

@@ -54,6 +54,12 @@ interface ConfirmDialogData {
             <mat-icon class="summary-icon">calendar_today</mat-icon>
             <span><strong>Date souhaitée:</strong> {{ data.reservation.preferredDate | dateFr:'long' }}</span>
           </div>
+          @if (preferredTime) {
+            <div class="summary-row">
+              <mat-icon class="summary-icon">schedule</mat-icon>
+              <span><strong>Heure souhaitée:</strong> {{ preferredTime }}</span>
+            </div>
+          }
         </div>
 
         <form [formGroup]="form" class="confirm-form">
@@ -177,6 +183,13 @@ interface ConfirmDialogData {
       .full-width {
         grid-column: 1 / -1;
       }
+
+      input[type="time"] {
+        min-height: 24px;
+        cursor: text;
+        color: var(--text-primary, #1e1b3a);
+        opacity: 1;
+      }
     }
 
     mat-dialog-content {
@@ -227,6 +240,7 @@ export class ReservationConfirmDialogComponent {
   private fb = inject(FormBuilder);
 
   today = new Date();
+  preferredTime = this.extractPreferredTime();
 
   form = this.fb.group({
     startDate: [this.getDefaultDate(), Validators.required],
@@ -275,6 +289,14 @@ export class ReservationConfirmDialogComponent {
       const d = new Date(startDateTime);
       return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
     }
+    // Extract time from preferredDate if it contains a time component
+    const preferredDate = this.data.reservation.preferredDate;
+    if (preferredDate && preferredDate.includes('T')) {
+      const d = new Date(preferredDate);
+      if (!isNaN(d.getTime())) {
+        return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
+      }
+    }
     return '09:00';
   }
 
@@ -284,7 +306,27 @@ export class ReservationConfirmDialogComponent {
       const d = new Date(endDateTime);
       return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
     }
+    // Default to preferred time + 1 hour if available
+    const preferredDate = this.data.reservation.preferredDate;
+    if (preferredDate && preferredDate.includes('T')) {
+      const d = new Date(preferredDate);
+      if (!isNaN(d.getTime())) {
+        d.setHours(d.getHours() + 1);
+        return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
+      }
+    }
     return '10:00';
+  }
+
+  private extractPreferredTime(): string | null {
+    const preferredDate = this.data.reservation.preferredDate;
+    if (preferredDate && preferredDate.includes('T')) {
+      const d = new Date(preferredDate);
+      if (!isNaN(d.getTime())) {
+        return d.getHours().toString().padStart(2, '0') + ':' + d.getMinutes().toString().padStart(2, '0');
+      }
+    }
+    return null;
   }
 
   private combineDateAndTime(date: Date, time: string): string {

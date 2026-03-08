@@ -149,7 +149,7 @@ const DAYS_OF_WEEK = [
   styles: [`
     .agencies-container {
       padding: 28px;
-      max-width: 1200px;
+      max-width: 1500px;
       margin: 0 auto;
     }
 

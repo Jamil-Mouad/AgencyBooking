@@ -129,7 +129,7 @@ interface AgentDisplay {
   styles: [`
     .agents-container {
       padding: 28px;
-      max-width: 1200px;
+      max-width: 1500px;
       margin: 0 auto;
     }
 

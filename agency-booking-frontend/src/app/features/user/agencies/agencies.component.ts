@@ -226,7 +226,7 @@ import { Agency } from '../../../shared/models';
     /* ===== Agencies Grid ===== */
     .agencies-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       gap: 24px;
     }
 
@@ -250,17 +250,17 @@ import { Agency } from '../../../shared/models';
       background: var(--primary-light) !important;
       color: var(--primary) !important;
       border-radius: var(--radius-md) !important;
-      width: 44px !important;
-      height: 44px !important;
+      width: 52px !important;
+      height: 52px !important;
       display: flex !important;
       align-items: center;
       justify-content: center;
 
       mat-icon {
         color: var(--primary);
-        font-size: 22px;
-        width: 22px;
-        height: 22px;
+        font-size: 26px;
+        width: 26px;
+        height: 26px;
       }
     }
 
@@ -269,7 +269,7 @@ import { Agency } from '../../../shared/models';
       font-family: var(--font-heading) !important;
       font-weight: 600 !important;
       color: var(--text-primary) !important;
-      font-size: 1.05rem !important;
+      font-size: 1.15rem !important;
     }
 
     .agency-location {
@@ -321,7 +321,7 @@ import { Agency } from '../../../shared/models';
     .service-chip {
       display: inline-flex;
       align-items: center;
-      padding: 4px 14px;
+      padding: 6px 16px;
       border-radius: var(--radius-full);
       background: var(--primary-light);
       color: var(--primary-dark);
@@ -345,7 +345,7 @@ import { Agency } from '../../../shared/models';
       font-weight: 600 !important;
       letter-spacing: 0 !important;
       padding: 0 20px !important;
-      height: 40px;
+      height: 44px;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast) !important;
       box-shadow: 0 2px 8px rgba(91, 108, 240, 0.25) !important;
 
